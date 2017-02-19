@@ -3,15 +3,14 @@ Main purpose of this repository is to help people in building FFmpeg, mainly on 
 (I tested this on Android, but armv7 shared libraries should be ok for iOS too).
 
 ## Prerequisites
-This kit is suposed to work with Android NDK version **r10e for Linux**. Version of FFmpeg in repo is **2.8.4**. Please, note that 
+This kit is suposed to work with Android NDK version **r13b for Linux or OSX**. Version of FFmpeg in repo is **3.2.4**. Please, note that 
 versions are quite important here, since it's not guaranteed that with other version of FFmpeg and/or NDK shared libs 
 would even compile. If you want to change version of FFmpeg and/or NDK you're completely free to do this, althought I should aware you 
 that this might be not a good idea. 
 
 ## Setup
 Quite small amount of setup is needed, basically all you need is to download appropriate NDK version. As written above, I've used 
-version r10e for Linux, which can be found here: [official archive](http://dl.google.com/android/ndk/android-ndk-r10e-linux-x86.bin) or 
-[Google Drive link](https://drive.google.com/file/d/0B0s4e6ONpUoVaWNvTHNVRWdCdHc/view?usp=sharing).
+version r13b for Linux.
 As soon as you got NDK, unpack it to disc (please, note, that Linux version have fromat .bin which would require 7z from you), then 
 **place FFmpeg from this repo under NDK/sources** (so path to FFmpeg would be NDK/sources/ffmpeg), JNI (Android project for NDK-build) 
 **have to be in the same directory in which NDK is located**. 
@@ -31,6 +30,7 @@ After this you should be able to just run ./build_all.sh if FFMpeg directory. Pl
 bit of time, so be ready to wait approx 2h for everything to be builded. After this, inside FFmpeg directory you will have 
 "android" folder which will contain .so files for every architecture and inside JNI/app you should have folder called "out" 
 which should contain libvideokit.so (unless you have changed the name of library) and all related .so files for every platform. 
+**On the latest FFmpeg and NDK I got problems with compiling of libraries for MIPS architecture**. If you really need that one - use version of FFmpeg 2.8.4 on this repo on accroding branch.
 
 ## License
 FFmpeg by itself is licensed under LGPL. FFmpeg folder contains **unchanged** code of FFmpeg of version 2.8.4, all changes 
